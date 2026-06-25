@@ -75,7 +75,7 @@ def build_summary_table(df: pd.DataFrame) -> pd.DataFrame:
 
         correct_count = total_env - total_missed
 
-        miss_pct = round(total_missed / total_env * 100) if total_env != 0 else 0
+        miss_pct = round(total_missed / total_env * 100, 2) if total_env != 0 else 0
         false_pct = round((total_false / total_env * 100), 1) if total_env != 0 else 0
         correct_ratio = round((total_env - total_missed) / total_env * 100) if total_env != 0 else 0
         overcount_pct = round((max(total_ai - total_env, 0) / total_env * 100), 1) if total_env != 0 else 0
