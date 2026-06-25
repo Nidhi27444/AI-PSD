@@ -684,8 +684,8 @@ def render_kpis(summary_df: pd.DataFrame):
         best_spot = None
         single_valid_spot = True
     else:
-        worst_spot = valid_spots.sort_values("Miss%", ascending=False).iloc[0]
-        best_spot = valid_spots.sort_values("Miss%", ascending=True).iloc[0]
+        worst_spot = (valid_spots.sort_values(["Miss%", "TotalMissed"], ascending=[False, False]).iloc[0])
+        best_spot = (valid_spots.sort_values(["Miss%","TotalMissed"], ascending=[True, True]).iloc[0])
         single_valid_spot = False
 
     miss_color = BAD if overall_miss > 60 else WARN if overall_miss > 30 else GOOD
